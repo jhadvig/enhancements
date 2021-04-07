@@ -110,6 +110,8 @@ The desired fallback experience if not all pieces/parts of the UI are translated
 
 We will also modify our existing file conversion tools to handle translation files spread across multiple packages so we can easily export/import translation files.
 
+Translation of the login templates within [oauth-templates](https://github.com/openshift/oauth-templates) and [oauth-server](https://github.com/openshift/oauth-server) repositories will be manually updated by the console team since their are only a small number of strings that rarely change. These strings are to be included in the console repository so that the i18next-parser will add them in the files sent to the Globalization team for translation.
+
 ### Risks and Mitigations
 
 **Risk**: All text is not translated.
@@ -150,6 +152,7 @@ We will need to make sure that new components with hard-coded strings are marked
 * 2020-08-03 - [PR against console](https://github.com/openshift/console/pull/6194) opened
 * 2020-04-23 - [UXD exploration of i18next](https://github.com/jschuler/console/pull/1) opened
 * 2020-04-13 - [UXD analysis and comparison of libraries](https://github.com/patternfly/patternfly-react/issues/3952#issuecomment-613645855) posted
+* 2021-03-25 - [PR against oauth-server](https://github.com/openshift/oauth-server/pull/71) opened
 
 ## Drawbacks
 
