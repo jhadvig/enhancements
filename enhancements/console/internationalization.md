@@ -110,7 +110,8 @@ The desired fallback experience if not all pieces/parts of the UI are translated
 
 We will also modify our existing file conversion tools to handle translation files spread across multiple packages so we can easily export/import translation files.
 
-Translation of the login templates within [oauth-templates](https://github.com/openshift/oauth-templates) and [oauth-server](https://github.com/openshift/oauth-server) repositories will be manually updated by the console team since their are only a small number of strings that rarely change. These strings are to be included in the console repository so that the i18next-parser will add them in the files sent to the Globalization team for translation.
+Translation of the login page will be handled by [oauth-server](https://github.com/openshift/oauth-server), which will check firstly the request URL for `lng` query. If the query is missing, `oauth-server` will check for request `Accept-Language` header. In case both query and header are missing in the request, `oauth-server` will deffer to english language for localization.
+[oauth-server](https://github.com/openshift/oauth-server) contains default login templates. Custom templates are stored in [oauth-templates](https://github.com/openshift/oauth-templates) repository. Localized strings, for each of the supported languages will be directly part of the `oauth-server`, since it's just a handful of strings, so we dont have to load them during runtime. These strings are to be included in the console repository so that the i18next-parser will add them in the files sent to the Globalization team for translation. Afterwards console team will contribute them back to the [oauth-server](https://github.com/openshift/oauth-server).
 
 ### Risks and Mitigations
 
